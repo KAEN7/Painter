@@ -31,13 +31,15 @@ main {
     display: flex;
     flex-direction: column;
     padding: 10px;
+    align-items: center;
 }
 
 #tool .tool__button button {
     width: 150px;
     padding: 10px;
-    margin: 5px
-
+    margin: 5px;
+    display: flex;
+    
 }
 
 canvas {
@@ -50,7 +52,9 @@ canvas {
 
 #colors {
     flex-basis: 20%;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #colors .color {
@@ -58,5 +62,5 @@ canvas {
     height: 50px;
     border-radius: 100%;
     margin: 5px;
-    
+
 }
