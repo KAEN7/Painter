@@ -1,0 +1,62 @@
+body {
+    font-family: sans-serif;
+    font-weight: 800;
+    background: rgb(232, 232, 232);
+}
+
+header h1 {
+    font-size: 150px;
+    display: flex;
+    justify-content: center;
+    background: hotpink;
+}
+
+main {
+    display: flex;
+    background: khaki;
+    flex-direction: row;
+    
+}
+
+#tool {
+    background: lavender;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20%;
+    align-content: center;
+    
+}
+
+#tool .tool__button {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#tool .tool__button button {
+    width: 150px;
+    padding: 10px;
+    margin: 5px
+
+}
+
+canvas {
+    height: 700px;
+    width: 700px;
+    background-color: greenyellow;
+    display: block;
+    flex-basis: 60%;
+}
+
+#colors {
+    flex-basis: 20%;
+    
+}
+
+#colors .color {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 5px;
+    
+}
