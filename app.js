@@ -45,7 +45,6 @@ function onMouseMove(event) {
 function changeColor(event) {
     const lineColor = event.target.style.backgroundColor;
     ctx.strokeStyle = lineColor;
-    console.log('nice');
 }
 
 
