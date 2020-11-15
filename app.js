@@ -5,11 +5,15 @@ const fill = document.getElementsByClassName('fill');
 const paint = document.getElementsByClassName('paint');
 const save = document.getElementsByClassName('save');
 
+// 중복
+canvas.width = 800;
+canvas.height = 800;
+
 // ctx
 ctx.fillStyle = 'white';
-ctx.fillRect(0, 0, 800, 800);
-ctx.fillStyle = '2c2c2c';
-ctx.strokeStyle = '2c2c2c';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.fillStyle = '#2c2c2c';
+ctx.strokeStyle = '#2c2c2c';
 ctx.lineWidth = 2.5;
 
 // let
@@ -31,13 +35,12 @@ function onMouseMove(event) {
     if(!painting) {
         ctx.beginPath();
         ctx.moveTo(x, y);
-        console.log('notPainting');
     } else {
         ctx.lineTo(x, y);
         ctx.stroke();
-        console.log('painting');
     }
 }
+
 
 // if
 if(canvas) {
