@@ -4,6 +4,7 @@ const ctx = canvas.getContext('2d');
 const fill = document.getElementsByClassName('fill');
 const paint = document.getElementsByClassName('paint');
 const save = document.getElementsByClassName('save');
+const colors = document.getElementsByClassName('color');
 
 // 중복
 canvas.width = 800;
@@ -41,6 +42,12 @@ function onMouseMove(event) {
     }
 }
 
+function changeColor(event) {
+    const lineColor = event.target.style.backgroundColor;
+    ctx.strokeStyle = lineColor;
+    console.log('nice');
+}
+
 
 // if
 if(canvas) {
@@ -48,3 +55,11 @@ if(canvas) {
     canvas.addEventListener('mousedown', startPainting);
     canvas.addEventListener('mouseup', stopPainting);
 }
+
+Array.from(colors).forEach(anyColor => 
+    anyColor.addEventListener('click', changeColor)
+);
+
+// if(paint) {
+//     paint.addEventListener('click', stopPainting);
+// }
