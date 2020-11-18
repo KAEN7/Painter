@@ -1,8 +1,8 @@
 // 주요 명칭
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-const fill = document.getElementsByClassName('fill');
-const paint = document.getElementsByClassName('paint');
+const fill = document.getElementById('fill');
+const paint = document.getElementById('paintBtn');
 const save = document.getElementsByClassName('save');
 const colors = document.getElementsByClassName('color');
 
@@ -28,6 +28,7 @@ function stopPainting() {
 
 function startPainting() {
     painting = true;
+    filling = false;
 }
 
 function onMouseMove(event) {
@@ -44,21 +45,42 @@ function onMouseMove(event) {
 
 function changeColor(event) {
     const lineColor = event.target.style.backgroundColor;
-    ctx.strokeStyle = lineColor;
+    if(filling === true) {
+        ctx.fillStyle = lineColor;
+    } else(painting === true); {
+        ctx.strokeStyle = lineColor;
+    }
 }
 
+function handleCanvasClick() {
+    if(filling) {
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+}
+
+function XXXXX() {
+    painting = true;
+    filling = false;
+}
 
 // if
 if(canvas) {
     canvas.addEventListener('mousemove', onMouseMove);
     canvas.addEventListener('mousedown', startPainting);
     canvas.addEventListener('mouseup', stopPainting);
+    canvas.addEventListener('click', handleCanvasClick);
+    canvas.addEventListener('click', handleCanvasClick);
+    
 }
 
 Array.from(colors).forEach(anyColor => 
     anyColor.addEventListener('click', changeColor)
 );
 
-// if(paint) {
-//     paint.addEventListener('click', stopPainting);
-// }
+if(fill) {
+    fill.addEventListener('click', startPainting);
+}
+
+if(paint) {
+    paint.addEventListener('click', XXXXX);   
+}
