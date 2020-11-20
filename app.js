@@ -53,6 +53,12 @@ function handleCanvasClick() {
     }
 }
 
+function changeCanvasColor(event) {
+    const canvasColor = event.target.style.backgroundColor;
+    ctx.fillStyle = canvasColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
 // if
 if(canvas) {
     canvas.addEventListener('mousemove', onMouseMove);
@@ -64,3 +70,15 @@ if(canvas) {
 Array.from(colors).forEach(anyColor => 
     anyColor.addEventListener('click', changeColor)
 );
+
+Array.from(colors).forEach(anyColor => 
+    anyColor.addEventListener('click', changeCanvasColor)
+);
+
+if(draw) {
+    draw.addEventListener('click', );
+}
+
+if(paint) {
+    paint.addEventListener('click', changeCanvasColor);
+}
