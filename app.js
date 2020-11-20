@@ -18,22 +18,22 @@ ctx.strokeStyle = '#2c2c2c';
 ctx.lineWidth = 2.5;
 
 // let
-let painting = false;
 let drawing = false;
+let painting = false;
 
 // function
-function stopPainting() {
-    painting = false;
+function stopDrawing() {
+    drawing = false;
 }
 
-function startPainting() {
-    painting = true;
+function startDrawing() {
+    drawing = true;
 }
 
 function onMouseMove(event) {
     const x = event.offsetX;
     const y = event.offsetY;
-    if(!painting) {
+    if(!drawing) {
         ctx.beginPath();
         ctx.moveTo(x, y);
     } else {
@@ -44,11 +44,7 @@ function onMouseMove(event) {
 
 function changeColor(event) {
     const lineColor = event.target.style.backgroundColor;
-    if(drawing === true) {
-        ctx.fillStyle = lineColor;
-    } else(painting === true); {
-        ctx.strokeStyle = lineColor;
-    }
+    ctx.strokeStyle = lineColor;
 }
 
 function handleCanvasClick() {
@@ -60,8 +56,8 @@ function handleCanvasClick() {
 // if
 if(canvas) {
     canvas.addEventListener('mousemove', onMouseMove);
-    canvas.addEventListener('mousedown', startPainting);
-    canvas.addEventListener('mouseup', stopPainting);
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('click', handleCanvasClick);
 }
 
