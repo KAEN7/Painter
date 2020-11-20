@@ -1,7 +1,7 @@
 // 주요 명칭
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-const drawing = document.getElementById('drawing');
+const draw = document.getElementById('drawing');
 const paint = document.getElementById('paintBtn');
 const save = document.getElementsByClassName('save');
 const colors = document.getElementsByClassName('color');
