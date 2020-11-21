@@ -54,9 +54,22 @@ function handleCanvasClick() {
 }
 
 function changeCanvasColor(event) {
+    Array.from(colors).forEach(anyColor => 
+        anyColor.addEventListener('click', changeCanvasColor)
+    );
     const canvasColor = event.target.style.backgroundColor;
     ctx.fillStyle = canvasColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    drawing = false;
+    painting = true;
+}
+
+function drawingNow() {
+    if(drawing === false) {
+        changeCanvasColor = false;
+        drawing = true
+        console.log('ok');
+    }   
 }
 
 // if
@@ -71,12 +84,8 @@ Array.from(colors).forEach(anyColor =>
     anyColor.addEventListener('click', changeColor)
 );
 
-Array.from(colors).forEach(anyColor => 
-    anyColor.addEventListener('click', changeCanvasColor)
-);
-
 if(draw) {
-    draw.addEventListener('click', );
+    draw.addEventListener('click', drawingNow);
 }
 
 if(paint) {
