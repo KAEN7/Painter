@@ -1,0 +1,82 @@
+/* body */
+body {
+    font-family: sans-serif;
+    font-weight: 800;
+    background: rgb(232, 232, 232);
+}
+
+/* header */
+header h1 {
+    font-size: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+/* main */
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* tool */
+#tool {
+    display: flex;
+    flex-direction: column;
+    
+    align-content: center;
+    
+}
+
+#tool .tool__button {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+}
+
+#tool .tool__button button {
+    width: 150px;
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    
+}
+
+#tool .tool__button button:active {
+    transform: scale(1.03);
+}
+
+.tool__brushsize {
+    display: flex;
+    justify-content: center;
+}
+
+/* canvas */
+canvas {
+    height: 800px;
+    max-width: 800px;
+    background-color: white;
+    display: block;
+    
+    border-radius: 14px;
+}
+
+/* color */
+#colors {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#colors .color {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 7px;
+}
+
+#colors .color:active {
+    transform: scale(1.05);
+}
