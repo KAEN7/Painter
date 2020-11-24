@@ -19,7 +19,7 @@ ctx.lineWidth = 2.5;
 
 // let
 let drawing = false;
-let painting = false;
+let painting = true;
 
 // function
 function stopDrawing() {
@@ -45,6 +45,7 @@ function onMouseMove(event) {
 function changeColor(event) {
     const lineColor = event.target.style.backgroundColor;
     ctx.strokeStyle = lineColor;
+    
 }
 
 function handleCanvasClick() {
@@ -53,24 +54,30 @@ function handleCanvasClick() {
     }
 }
 
-function changeCanvasColor(event) {
-    Array.from(colors).forEach(anyColor => 
-        anyColor.addEventListener('click', changeCanvasColor)
-    );
-    const canvasColor = event.target.style.backgroundColor;
-    ctx.fillStyle = canvasColor;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    drawing = false;
-    painting = true;
-}
-
 function drawingNow() {
     if(drawing === false) {
-        changeCanvasColor = false;
-        drawing = true
+        painting = false;
         console.log('ok');
     }   
 }
+
+function clickPaint(event) {
+    if(painting === true) {
+        Array.from(colors).forEach(anyColor => 
+            anyColor.addEventListener('click', clickPaint)
+        );
+        const canvasColor = event.target.style.backgroundColor;
+        ctx.fillStyle = canvasColor;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        drawing = false;
+        console.log('ok??');
+    }
+}
+
+// ARRAY
+const canvasArray = Array.from(colors).forEach(anyColor => 
+    anyColor.addEventListener('click', changeColor)
+);
 
 // if
 if(canvas) {
@@ -80,14 +87,10 @@ if(canvas) {
     canvas.addEventListener('click', handleCanvasClick);
 }
 
-Array.from(colors).forEach(anyColor => 
-    anyColor.addEventListener('click', changeColor)
-);
-
 if(draw) {
     draw.addEventListener('click', drawingNow);
 }
 
 if(paint) {
-    paint.addEventListener('click', changeCanvasColor);
+    paint.addEventListener('click', clickPaint);
 }
