@@ -19,7 +19,9 @@ ctx.lineWidth = 2.5;
 
 // let
 let drawing = false;
-let painting = true;
+let painting = false;
+let breaking = false;
+let clicker = false;
 
 // function
 function stopDrawing() {
@@ -56,13 +58,14 @@ function handleCanvasClick() {
 
 function drawingNow() {
     if(drawing === false) {
-        painting = false;
+        breaking = false;
+        clicker = false;
         console.log('ok');
     }   
 }
 
 function clickPaint(event) {
-    if(painting === true) {
+    if (breaking === false && clicker === true) {
         Array.from(colors).forEach(anyColor => 
             anyColor.addEventListener('click', clickPaint)
         );
@@ -72,6 +75,10 @@ function clickPaint(event) {
         drawing = false;
         console.log('ok??');
     }
+}
+
+function clickerEvent() {
+    clicker = true;
 }
 
 // ARRAY
@@ -92,5 +99,6 @@ if(draw) {
 }
 
 if(paint) {
+    paint.addEventListener('click', clickerEvent);
     paint.addEventListener('click', clickPaint);
 }
