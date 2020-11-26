@@ -5,6 +5,8 @@ const draw = document.getElementById('drawing');
 const paint = document.getElementById('paintBtn');
 const save = document.getElementsByClassName('save');
 const colors = document.getElementsByClassName('color');
+const saveFile = document.getElementById('save');
+const range = document.getElementById('range');
 
 // 중복
 canvas.width = 800;
@@ -81,6 +83,19 @@ function clickerEvent() {
     clicker = true;
 }
 
+function saveBtn() {
+    const image = canvas.toDataURL('png');
+    const link = document.createElement('a');
+    link.href = image;
+    link.download = "PAINTER";
+    link.click();
+}
+
+function rangeChange(event) {
+    const size = event.target.value;
+    ctx.lineWidth = size;
+}
+
 // ARRAY
 const canvasArray = Array.from(colors).forEach(anyColor => 
     anyColor.addEventListener('click', changeColor)
@@ -101,4 +116,12 @@ if(draw) {
 if(paint) {
     paint.addEventListener('click', clickerEvent);
     paint.addEventListener('click', clickPaint);
+}
+
+if(saveFile) {
+    saveFile.addEventListener('click', saveBtn);
+}
+
+if(range) {
+    range.addEventListener('click', rangeChange);
 }
